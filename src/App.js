@@ -49,12 +49,9 @@ class App extends Component {
       .then(() => {
         target.innerHTML = target.innerHTML.includes('Good') ? 'Bad Dog!' : 'Good Dog!';
         this.setState(prevState => {
-          console.log('Prev state >> ', prevState);
           const updatedPup = {...prevState.selectedPup, isGoodDog: !prevState.selectedPup.isGoodDog};
           const newState = {...prevState, selectedPup: updatedPup};
-          console.log(newState.pups.findIndex(pup => pup.id === prevState.selectedPup.id));
           newState.pups[newState.pups.findIndex(pup => pup.id === prevState.selectedPup.id)] = updatedPup;
-          console.log('New state >> ', newState);
           return newState;
         });
       });
